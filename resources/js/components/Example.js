@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
-export default class Example extends Component {
+class App extends Component {
     render() {
         return (
             <div className="container">
@@ -9,10 +9,11 @@ export default class Example extends Component {
                     <div className="col-md-8">
                         <div className="card">
                             <div className="card-header">Example Component</div>
-
+                            <p>{ this.props.counter }</p>
                             <div className="card-body">
                                 I'm an example component!
                             </div>
+                            <button onClick={this.props.onIncrement}>increment</button>
                         </div>
                     </div>
                 </div>
@@ -21,6 +22,19 @@ export default class Example extends Component {
     }
 }
 
-if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
+function mapStateToProps(state) {
+    return {
+        counter: state.counter
+    };
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onIncrement: () => dispatch({type: "INCREMENT"})
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);

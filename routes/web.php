@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Cache;
-
+Route::view('/docs', 'docs');
+Route::view('/app', 'app');
 Route::get('/clear-cache', function () {
     Cache::flush();
     return 'K 😎😎😎😎😎😎😎😎😎😎😎';
@@ -10,22 +11,16 @@ Route::get('/clear-cache', function () {
 Route::get('/', function () {
 
     if ($value = Cache::get('python')) {
-
-        return view('welcome')->withPython($value);
-
     } else {
-
         try {
             $value = Requests::get('http://127.0.0.1:5000/welcome')->body;
         } catch (Exception $e) {
             return 'can not connect to python';
         }
-
+        sleep(2);
         Cache::put('python', $value . ' 😎', 600);
-        return view('welcome')->withPython($value);
-
     }
-
+    return view('welcome')->withPython($value);
 });
 
 Route::get('/echo/{text?}', function ($text = null) {
