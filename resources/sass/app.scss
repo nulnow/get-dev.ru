@@ -172,3 +172,25 @@ a {
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     }
 }
+
+.invalid-feedback {
+    color: #f44336;
+}
+
+.nav-links {
+
+    a {
+        display: block;
+
+        padding: 25px 40px;
+
+        color: #FAFAFA;
+        font-size: 20px;
+
+        background-color: #212121;
+
+        &:hover {
+            background-color: #262626;
+        }
+    }
+}

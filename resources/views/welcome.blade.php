@@ -20,8 +20,12 @@
             </div>
         </div>
     @else
-        <div class="container">
-
+        <div class="mt-10 container block shadow-1">
+            <nav class="nav-links">
+                <a href="/profile">Profile</a>
+                <a href="/tasks">Tasks</a>
+                <a href="/chat">Chat</a>
+            </nav>
         </div>
     @endguest
 
