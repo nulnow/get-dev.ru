@@ -50,3 +50,6 @@ Route::get('/logout', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/profile', 'profile')->name('profile');
 Route::get('/tasks', 'TasksController@index');
+Route::get('/tasks/{task}', 'TasksController@show');
+Route::get('/create-task', 'TasksController@form');
+Route::post('/tasks', 'TasksController@create');

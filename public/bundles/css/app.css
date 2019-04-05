@@ -181,3 +181,67 @@ a {
   background-color: #262626;
 }
 
+.tasks {
+  padding: 10px;
+}
+
+.tasks .task {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  background-color: #F5F5F5;
+}
+
+.tasks .task__owner-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.tasks .task__description {
+  line-height: 150%;
+  font-size: 14px;
+}
+
+.tasks .task__texts {
+  width: 85%;
+  max-width: 85%;
+}
+
+.tasks .task__title {
+  font-size: 20px;
+}
+
+.tasks .task:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.task__owner {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.task__owner-name {
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.task__owner-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #F5F5F5;
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #FFF9C4;
+}
+

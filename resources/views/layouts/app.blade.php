@@ -24,6 +24,14 @@
     </nav>
 </header>
 
+@if(session()->has('message'))
+    <div class="container mt-10">
+        <div class="alert">
+            {{ session()->get('message') }}
+        </div>
+    </div>
+@endif
+
 @yield('content')
 
 <script src="/bundles/js/app.js"></script>
