@@ -19,8 +19,8 @@
             </div>
         @else
             <div class="text">
-                <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">I want to be a partner</a>
-                <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">I want to be a developer</a>
+                <a href="#" class="btn btn--danger">Be a partner</a>
+                <a href="#" class="btn btn--danger">Be a developer</a>
             </div>
         @endif
     </div>
