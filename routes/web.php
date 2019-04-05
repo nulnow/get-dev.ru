@@ -49,3 +49,4 @@ Route::get('/logout', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/profile', 'profile')->name('profile');
+Route::get('/tasks', 'TasksController@index');
