@@ -19,8 +19,10 @@
             </div>
         @else
             <div class="text">
-                <a href="#" class="btn btn--danger">Be a partner</a>
-                <a href="#" class="btn btn--danger">Be a developer</a>
+                <a href="#" class="btn">Be a partner</a>
+            </div>
+            <div class="text">
+                <a href="#" class="btn">Be a developer</a>
             </div>
         @endif
     </div>
