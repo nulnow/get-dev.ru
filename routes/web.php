@@ -10,12 +10,11 @@ Route::get('/clear-cache', function () {
 
 Route::get('/', function () {
 
-    if ($value = Cache::get('python')) {
-    } else {
+    if (!$value = Cache::get('python')) {
         try {
             $value = Requests::get('http://127.0.0.1:5000/welcome')->body;
         } catch (Exception $e) {
-            return 'can not connect to python';
+            $value =  'can not connect';
         }
         sleep(2);
         Cache::put('python', $value . ' 😎', 600);
@@ -29,4 +28,9 @@ Route::get('/echo/{text?}', function ($text = null) {
             'text' => $text
         ]))->body;
     return $value;
+});
+
+Route::get('/delay', function () {
+   sleep(2);
+   return 'ok';
 });
