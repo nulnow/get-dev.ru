@@ -42,4 +42,15 @@ class TasksController extends Controller
 
         return redirect('/');
     }
+
+    public function delete(\App\Task $task)
+    {
+        $user = Auth::user();
+        if ($task->creator === $user->id) {
+            $task->delete();
+            session()->flash('message', 'Task has been deleted!');
+            return redirect()->route('tasks');
+        }
+        return 'ломаеш ага, папался хакер!!! не ломай';
+    }
 }

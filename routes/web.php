@@ -47,9 +47,9 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/profile', 'profile')->name('profile');
-Route::get('/tasks', 'TasksController@index');
-Route::get('/tasks/{task}', 'TasksController@show');
-Route::get('/create-task', 'TasksController@form');
-Route::post('/tasks', 'TasksController@create');
+Route::get('/tasks', 'TasksController@index')->name('tasks');
+Route::get('/tasks/{task}', 'TasksController@show')->name('task');
+Route::get('/create-task', 'TasksController@form')->name('create-task');
+Route::post('/tasks', 'TasksController@create')->name('create-task');
+Route::get('/delete-task/{task}', 'TasksController@delete')->name('delete-task');

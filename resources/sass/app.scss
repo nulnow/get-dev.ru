@@ -74,7 +74,7 @@ a {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    height: 90vh;
+    min-height: 90vh;
 
     -webkit-background-size: cover;
     background-size: cover;
@@ -170,6 +170,10 @@ a {
     &::selection,
     &:hover {
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+    
+    &--danger {
+        background-color: #f44336;
     }
 }
 

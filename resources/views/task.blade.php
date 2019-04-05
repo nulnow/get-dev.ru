@@ -13,8 +13,16 @@
             <h1>{{ $task->title }}</h1>
             <p>{{ $task->description }}</p>
         </div>
-        <div></div>
-
+        @if ($task->creator === Auth::user()->id)
+            <div class="text">
+                <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">Delete</a>
+            </div>
+        @else
+            <div class="text">
+                <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">I want to be a partner</a>
+                <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">I want to be a developer</a>
+            </div>
+        @endif
     </div>
 
 @endsection
