@@ -78,7 +78,7 @@
 <div class="container jumbotron">
     <form action="/register" method="POST" class="login-form block text">
 
-        <h1>Login</h1>
+        <h1>Register</h1>
 
         <label class="label">
             <span>Name</span>
