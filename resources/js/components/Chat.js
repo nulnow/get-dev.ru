@@ -11,7 +11,7 @@ export default class Chat extends Component {
 
         setInterval(() => {
             this.reloadMessages();
-        }, 2000);
+        }, 4000);
 
         this.onInputChange = this.onInputChange.bind(this);
         this.onMessageSend = this.onMessageSend.bind(this);
@@ -72,9 +72,13 @@ export default class Chat extends Component {
                             })
                         }
                     </div>
-                    <div className="chat__input">
-                        <form onSubmit={this.onMessageSend}>
-                            <input value={this.state.input} onChange={this.onInputChange} />
+                    <div className="chat__input" onSubmit={this.onMessageSend}>
+                        <form>
+                            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input onChange={this.onInputChange} value={this.state.input} className="mdl-textfield__input" type="text" id="sample3" />
+                                <label className="mdl-textfield__label" htmlFor="sample3">Message</label>
+                            </div>
+                            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Send</button>
                         </form>
                     </div>
                 </main>

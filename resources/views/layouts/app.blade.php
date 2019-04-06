@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/material.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
-    {{--<link href="/bundles/css/app.css" rel="stylesheet">--}}
+    <link href="/bundles/css/app.css" rel="stylesheet">
     <style>
         .login-form {
             display: block;
@@ -32,6 +32,17 @@
             max-width: 320px;
             margin: 0 auto;
             padding: 5px;
+        }
+        .demo-card-wide.mdl-card {
+            width: 100%;
+        }
+        .demo-card-wide > .mdl-card__title {
+            color: #fff;
+            min-height: 106px;
+            /*background: url('../assets/demos/welcome_card.jpg') center / cover;*/
+        }
+        .demo-card-wide > .mdl-card__menu {
+            color: #fff;
         }
     </style>
 </head>
@@ -71,7 +82,6 @@
                 </a>
                 <a class="mdl-navigation__link" href="/profile">Profile</a>
                 <a class="mdl-navigation__link" href="/tasks">Tasks</a>
-                <a class="mdl-navigation__link" href="/chat">Chat</a>
                 <a class="mdl-navigation__link" href="/users">Users</a>
                 <a class="mdl-navigation__link" href="/my-requests">My Requests</a>
                 <a class="mdl-navigation__link" href="/my-tasks">My Tasks</a>

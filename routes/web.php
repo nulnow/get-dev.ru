@@ -68,4 +68,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/create-dev-request/{task}', 'DevRequestsController@create')->name('create-dev-request');
     Route::get('/accept-dev-request/{devRequest}', 'DevRequestsController@acceptRequest')->name('accept-request');
     Route::get('/delete-dev-request/{devRequest}', 'DevRequestsController@delete')->name('delete-dev-request');
+    Route::get('/chat', 'ChatController@chats')->name('chats');
 });

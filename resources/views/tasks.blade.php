@@ -2,20 +2,6 @@
 
 @section('content')
 
-    <style>
-        .demo-card-wide.mdl-card {
-            width: 100%;
-        }
-        .demo-card-wide > .mdl-card__title {
-            color: #fff;
-            min-height: 106px;
-            /*background: url('../assets/demos/welcome_card.jpg') center / cover;*/
-        }
-        .demo-card-wide > .mdl-card__menu {
-            color: #fff;
-        }
-    </style>
-
     <div class="mt-10 container block shadow-1">
 
         <h3>Tasks
@@ -59,6 +45,8 @@
             </div>
             <br>
         @endforeach
+
+    </div>
 
 @endsection
 
