@@ -18,7 +18,7 @@
     </div>
     <div class="container block shadow-1 text">
         <br>
-        <h2>Accepted requests:</h2>
+        <h4>Accepted requests:</h4>
         <ul>
             @foreach($task->getAcceptedDevRequests() as $acceptedRequest)
                 <li class="">
@@ -30,16 +30,17 @@
             @endforeach
         </ul>
         <br>
-        <h2>Active requests:</h2>
-        <ul class="active-requests">
+        <h4>Active requests:</h4>
+        <ul class="demo-list-icon mdl-list">
             @foreach($task->getUnAcceptedDevRequests() as $unacceptedRequest)
-                <li class="">
-                    <a href="{{ route('user', $unacceptedRequest->user->id) }}">
-                        <img width="50" height="50" class="request__user-img" src="{{ $unacceptedRequest->user->img }}" alt="">
+                <li class="mdl-list__item">
+                    <a href="{{ route('user', $unacceptedRequest->user->id) }}" class="mdl-list__item-primary-content">
+                        <i class="material-icons mdl-list__item-icon">person</i>
+                        {{--<img width="50" height="50" class="request__user-img" src="{{ $unacceptedRequest->user->img }}" alt="">--}}
                         {{ $unacceptedRequest->user->name }}
                     </a>
                     @if (Auth::user()->checkIfOwnTask($task->id))
-                        <a href="{{ route('accept-request', $unacceptedRequest->id) }}" class="btn">Accept request</a>
+                        <a href="{{ route('accept-request', $unacceptedRequest->id) }}" class="mdl-button mdl-js-button mdl-js-ripple-effect">Accept request</a>
                     @endif
                 </li>
             @endforeach
@@ -50,11 +51,16 @@
                 <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">Delete</a>
             </div>
         @else
-            <div class="text">
-                <a href="#" class="btn">Be a partner</a>
+            <div class="">
+                <a href="#" style="margin-bottom: 5px" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Be a partner
+                </a>
+                <a href="{{ route('create-dev-request', $task->id) }}" style="margin-bottom: 5px" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Create dev request
+                </a>
             </div>
-            <div class="text">
-                <a href="{{ route('create-dev-request', $task->id) }}" class="btn">Create dev request</a>
+            <div class="">
+
             </div>
         @endif
     </div>
