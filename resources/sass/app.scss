@@ -251,6 +251,10 @@ a {
 }
 
 .task {
+    padding: 40px;
+    border-bottom: 1px solid #5c5c5c;
+    background-color: #fff;
+    
     &__owner {
         display: flex;
         flex-flow: row nowrap;
@@ -337,5 +341,33 @@ a {
 
     &__field {
         margin-bottom: 20px;
+    }
+}
+
+.active-requests {
+    list-style: none;
+    
+    li {
+        border-radius: 4px;
+        background-color: #EEEEEE;
+
+        a {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+
+            padding: 5px;
+        }
+    }
+
+    .request__user-img {
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        border-radius: 50%;
+
+        background-color: #fff;
     }
 }

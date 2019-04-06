@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="mt-10 container block shadow-1 text">
+    <div class="mt-10 shadow-1 container">
         <div class="task">
             <a href="{{ route('user', $task->owner->id) }}" class="task__owner">
                 <img src="{{ $task->owner->img }}" class="task__owner-photo" alt="">
@@ -15,23 +15,27 @@
             <h1>{{ $task->title }}</h1>
             <p>{{ $task->description }}</p>
         </div>
-
+    </div>
+    <div class="container block shadow-1 text">
+        <br>
         <h2>Accepted requests:</h2>
         <ul>
             @foreach($task->getAcceptedDevRequests() as $acceptedRequest)
-                <li class="text">
+                <li class="">
                     <a href="{{ route('user', $acceptedRequest->user->id) }}">
+                        <img class="request__user-img" src="{{ $unacceptedRequest->user->img }}" alt="">
                         {{ $acceptedRequest->user->name }}
                     </a>
                 </li>
             @endforeach
         </ul>
-
+        <br>
         <h2>Active requests:</h2>
-        <ul>
+        <ul class="active-requests">
             @foreach($task->getUnAcceptedDevRequests() as $unacceptedRequest)
-                <li class="text">
+                <li class="">
                     <a href="{{ route('user', $unacceptedRequest->user->id) }}">
+                        <img class="request__user-img" src="{{ $unacceptedRequest->user->img }}" alt="">
                         {{ $unacceptedRequest->user->name }}
                     </a>
                     @if (Auth::user()->checkIfOwnTask($task->id))
@@ -42,7 +46,7 @@
         </ul>
 
         @if (Auth::user()->checkIfOwnTask($task->id))
-            <div class="text">
+            <div class="">
                 <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">Delete</a>
             </div>
         @else
