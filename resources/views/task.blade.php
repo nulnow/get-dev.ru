@@ -16,14 +16,32 @@
             <p>{{ $task->description }}</p>
         </div>
 
-        <h2>Active requests:</h2>
+        <h2>Accepted requests:</h2>
         <ul>
-            @foreach($task->getUnAcceptedDevRequests() as $unacceptedRequest)
-                <li>{{ $unacceptedRequest->user->name }}</li>
+            @foreach($task->getAcceptedDevRequests() as $acceptedRequest)
+                <li class="text">
+                    <a href="{{ route('user', $acceptedRequest->user->id) }}">
+                        {{ $acceptedRequest->user->name }}
+                    </a>
+                </li>
             @endforeach
         </ul>
 
-        @if ($task->creator === Auth::user()->id)
+        <h2>Active requests:</h2>
+        <ul>
+            @foreach($task->getUnAcceptedDevRequests() as $unacceptedRequest)
+                <li class="text">
+                    <a href="{{ route('user', $unacceptedRequest->user->id) }}">
+                        {{ $unacceptedRequest->user->name }}
+                    </a>
+                    @if (Auth::user()->checkIfOwnTask($task->id))
+                        <a href="{{ route('accept-request', $unacceptedRequest->id) }}" class="btn">Accept request</a>
+                    @endif
+                </li>
+            @endforeach
+        </ul>
+
+        @if (Auth::user()->checkIfOwnTask($task->id))
             <div class="text">
                 <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">Delete</a>
             </div>

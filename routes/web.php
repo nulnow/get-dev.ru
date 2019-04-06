@@ -61,4 +61,5 @@ Route::middleware('auth')->group(function () {
     Route::view('/my-requests', 'my-requests')->name('my-requests');
     Route::view('/my-tasks', 'my-tasks')->name('my-tasks');
     Route::get('/create-dev-request/{task}', 'DevRequestsController@create')->name('create-dev-request');
+    Route::get('/accept-dev-request/{devRequest}', 'DevRequestsController@acceptRequest')->name('accept-request');
 });

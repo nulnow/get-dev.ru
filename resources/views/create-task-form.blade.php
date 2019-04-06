@@ -10,7 +10,7 @@
 
             <label class="label" for="">
                 <span>Task name</span>
-                <input name="title" type="text">
+                <input name="title" type="text" value="{{ old('title') }}">
             </label>
             @if ($errors->has('title'))
                 <span class="invalid-feedback" role="alert">
@@ -20,7 +20,7 @@
 
             <label class="label" for="">
                 <span>Task description</span>
-                <textarea name="description"></textarea>
+                <textarea name="description">{{ old('description') }}</textarea>
             </label>
             @if ($errors->has('description'))
                 <span class="invalid-feedback" role="alert">

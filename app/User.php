@@ -72,4 +72,10 @@ class User extends Authenticatable
         return $this->hasMany('\App\DevRequest', 'from');
     }
 
+    public function checkIfOwnTask($taskId)
+    {
+        $task = \App\Task::find($taskId);
+        return $this->id === $task->creator;
+    }
+
 }

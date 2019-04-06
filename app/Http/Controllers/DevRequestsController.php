@@ -16,7 +16,10 @@ class DevRequestsController extends Controller
             return back();
         }
 
-        if (\App\DevRequest::where('from', $user->id)->andWhere('task_id', $task->id)->first()) {
+        if (\App\DevRequest::where([
+                ['from', '=', $user->id],
+                ['task_id', '=', $task->id]
+            ])->first()) {
             session()->flash('message', 'You are creator of this task!');
             return back();
         }
@@ -27,6 +30,19 @@ class DevRequestsController extends Controller
         $devRequest->save();
 
         session()->flash('message', 'Request has been created!');
+        return back();
+    }
+
+    public function acceptRequest(\App\DevRequest $devRequest)
+    {
+        if (!Auth::user()->checkIfOwnTask($devRequest->task->id)) {
+            return abort(403);
+        }
+
+        $devRequest->accepted = true;
+        $devRequest->save();
+
+        session()->flash('message', 'Request has been accetped!');
         return back();
     }
 }
