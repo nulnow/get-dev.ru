@@ -72,6 +72,11 @@ class User extends Authenticatable
         return $this->hasMany('\App\DevRequest', 'from');
     }
 
+    public function getUnAcceptedDevRequests()
+    {
+        return $this->devRequests->where('accepted', 0);
+    }
+
     public function checkIfOwnTask($taskId)
     {
         $task = \App\Task::find($taskId);
