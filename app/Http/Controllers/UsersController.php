@@ -20,7 +20,7 @@ class UsersController extends Controller
             'email' => 'required|email',
             'bio' => 'required|string|max:5000',
             'skills' => 'required|string|max:1000',
-            'img' => 'url|string|max:255'
+            'img' => 'nullable|url|string|max:255'
         ]);
 
         $user = Auth::user();

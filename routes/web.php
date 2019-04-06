@@ -48,6 +48,8 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
+Route::redirect('/home', '/');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', 'UsersController@profile')->name('profile');
     Route::post('/profile', 'UsersController@updateProfile')->name('update-profile');

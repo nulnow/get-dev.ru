@@ -2,66 +2,58 @@
 
 @section('content')
 
-    <div class="mt-10 container text block">
-        <form action="/profile" method="POST">
-
-            <h1>Your profile</h1>
-
-            <label class="label" for="">
-                <span>Your photo (url)</span>
-                <input name="img" type="text" value="{{ $user->img }}">
-                @if ($errors->has('img'))
-                    <span class="invalid-feedback" role="alert">
+    <form action="/profile" method="POST" class="login-form">
+        <h1>Your profile</h1>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input value="{{ $user->img }}" name="img" class="mdl-textfield__input" type="text" id="img">
+            <label class="mdl-textfield__label" for="img">Photo url</label>
+            @if ($errors->has('img'))
+                <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('img') }}</strong>
                     </span>
-                @endif
-            </label>
-
-            <label class="label" for="">
-                <span>Your name</span>
-                <input name="name" type="text" value="{{ $user->name }}">
-                @if ($errors->has('name'))
-                    <span class="invalid-feedback" role="alert">
+            @endif
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input value="{{ $user->name }}" name="name" class="mdl-textfield__input" type="text" id="name">
+            <label class="mdl-textfield__label" for="name">Name</label>
+            @if ($errors->has('name'))
+                <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('name') }}</strong>
                     </span>
-                @endif
-            </label>
-
-            <label class="label" for="">
-                <span>Your email</span>
-                <input name="email" type="email" value="{{ $user->email }}">
-                @if ($errors->has('email'))
-                    <span class="invalid-feedback" role="alert">
+            @endif
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input value="{{ $user->email }}" name="email" class="mdl-textfield__input" type="text" id="email">
+            <label class="mdl-textfield__label" for="email">Email</label>
+            @if ($errors->has('email'))
+                <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
-                @endif
-            </label>
-
-            <label class="label" for="">
-                <span>Description</span>
-                <textarea name="bio" style="height: 100px;">{{ $user->bio }}</textarea>
-                @if ($errors->has('bio'))
-                    <span class="invalid-feedback" role="alert">
+            @endif
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input value="{{ $user->bio }}" name="bio" class="mdl-textfield__input" type="text" id="bio">
+            <label class="mdl-textfield__label" for="email">Bio</label>
+            @if ($errors->has('bio'))
+                <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('bio') }}</strong>
                     </span>
-                @endif
-            </label>
-
-            <label class="label" for="">
-                <span>Skills</span>
-                <textarea name="skills" style="height: 100px;">{{ implode(', ', $user->getSkillsAsArray()) }}</textarea>
-                @if ($errors->has('skills'))
-                    <span class="invalid-feedback" role="alert">
+            @endif
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input value="{{ implode(', ', $user->getSkillsAsArray())}}" name="skills" class="mdl-textfield__input" type="text" id="skills">
+            <label class="mdl-textfield__label" for="email">Skills</label>
+            @if ($errors->has('skills'))
+                <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('skills') }}</strong>
                     </span>
-                @endif
-            </label>
-
-            <div class="text">
-                <button class="btn" type="submit">Save</button>
-            </div>
-        </form>
-
-    </div>
+            @endif
+        </div>
+        <br>
+        <!-- Accent-colored raised button with ripple -->
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Save
+        </button>
+    </form>
 
 @endsection

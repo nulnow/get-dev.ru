@@ -9,35 +9,121 @@
     <title>@yield('title', 'get-dev.ru')</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="/material.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
-    <link href="/bundles/css/app.css" rel="stylesheet">
+    {{--<link href="/bundles/css/app.css" rel="stylesheet">--}}
+    <style>
+        .login-form {
+            display: block;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            margin-top: 10vh;
+
+            background-color: #fff;
+        }
+        .search-form {
+            background-color: #fff;
+            width: 100%;
+        }
+        .container {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
 
-<header class="header shadow-1">
-    <a href="/" class="logo">get-dev.ru</a>
-    <nav class="header__nav">
-        @guest
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
-        @else
-            <a href="/logout">Logout</a>
-        @endguest
-    </nav>
-</header>
-
-@if(session()->has('message'))
-    <div class="container mt-10" onclick="window.location.reload()">
-        <div class="alert">
-            {{ session()->get('message') }}
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">get-dev.ru</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                @guest
+                    <a class="mdl-navigation__link" href="/login">Login</a>
+                    <a class="mdl-navigation__link" href="/register">Register</a>
+                @else
+                    <a class="mdl-navigation__link" href="{{ route('user', Auth::user()->id) }}">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <a class="mdl-navigation__link" href="/logout">Logout</a>
+                @endguest
+            </nav>
         </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">menu</span>
+        <nav class="mdl-navigation">
+            @guest
+                <a class="mdl-navigation__link" href="/login">Login</a>
+                <a class="mdl-navigation__link" href="/register">Register</a>
+            @else
+                <a class="mdl-navigation__link" href="{{ route('user', Auth::user()->id) }}">
+                    {{ Auth::user()->name }}
+                </a>
+                <a class="mdl-navigation__link" href="/profile">Profile</a>
+                <a class="mdl-navigation__link" href="/tasks">Tasks</a>
+                <a class="mdl-navigation__link" href="/chat">Chat</a>
+                <a class="mdl-navigation__link" href="/users">Users</a>
+                <a class="mdl-navigation__link" href="/my-requests">My Requests</a>
+                <a class="mdl-navigation__link" href="/my-tasks">My Tasks</a>
+                <a class="mdl-navigation__link" class="mdl-navigation__link" href="/logout">Logout</a>
+            @endguest
+        </nav>
     </div>
-@endif
-
-@yield('content')
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            @if(session()->has('message'))
+                {{--<button id="demo-show-snackbar" class="mdl-button mdl-js-button mdl-button--raised" type="button">Show Snackbar</button>--}}
+                <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+                    <div class="mdl-snackbar__text"></div>
+                    <button class="mdl-snackbar__action" type="button"></button>
+                </div>
+            @endif
+            @auth
+            <!-- Colored FAB button with ripple -->
+                <a style="position: fixed; bottom: 50px; right: 50px"
+                   href="/create-task"
+                   class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+                   title="Create new task">
+                    <i class="material-icons">add</i>
+                </a>
+            @endauth
+            @yield('content')
+        </div>
+    </main>
+</div>
 
 <script src="/bundles/js/app.js"></script>
+@if(session()->has('message'))
+    <script>
+        (function() {
+            'use strict';
+            var snackbarContainer = document.querySelector('#demo-snackbar-example');
+            var showSnackbarButton = document.querySelector('#demo-show-snackbar');
+            var handler = function(event) {
+
+            };
+            setTimeout(function() {
+                'use strict';
+                var data = {
+                    message: '{{ session()->get('message') }}',
+                    timeout: 3000,
+                    actionHandler: handler,
+                    actionText: 'Ok'
+                };
+                snackbarContainer.MaterialSnackbar.showSnackbar(data);
+            }, 500);
+        }());
+    </script>
+@endif
 </body>
 </html>

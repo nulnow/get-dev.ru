@@ -1,34 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="container jumbotron">
-        <form action="/login" method="POST" class="login-form block text">
-
-            <h1>Login</h1>
-
-            <label class="label">
-                <span>Email</span>
-                <input name="email" type="email">
-                @if ($errors->has('email'))
-                    <span class="invalid-feedback" role="alert">
+    <form action="/login" method="POST" class="login-form">
+        <h1>Login</h1>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input name="email" class="mdl-textfield__input" type="text" id="email">
+            <label class="mdl-textfield__label" for="email">Email</label>
+            @if ($errors->has('email'))
+                <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
-                @endif
-            </label>
-
-            <label class="label">
-                <span>Password</span>
-                <input name="password" type="password">
-            </label>
+            @endif
+        </div>
+        <br>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input name="password" class="mdl-textfield__input" type="password" id="password">
+            <label class="mdl-textfield__label" for="password">Password</label>
             @if ($errors->has('password'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('password') }}</strong>
                 </span>
             @endif
-
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Login</button>
-        </form>
-    </div>
-
+        </div>
+        <br>
+        <!-- Accent-colored raised button with ripple -->
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Login
+        </button>
+    </form>
 @endsection

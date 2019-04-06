@@ -2,28 +2,63 @@
 
 @section('content')
 
+    <style>
+        .demo-card-wide.mdl-card {
+            width: 100%;
+        }
+        .demo-card-wide > .mdl-card__title {
+            color: #fff;
+            min-height: 106px;
+            /*background: url('../assets/demos/welcome_card.jpg') center / cover;*/
+        }
+        .demo-card-wide > .mdl-card__menu {
+            color: #fff;
+        }
+    </style>
+
     <div class="mt-10 container block shadow-1">
-        <div class="text">
-            <a href="/create-task" class="btn">Create task</a>
-        </div>
 
-        <form action="{{ route('tasks') }}">
-            <input type="text" name="q" value="{{ request('q') }}" placeholder="Search" class="search">
+        <h3>Tasks
+        <!-- Expandable Textfield -->
+        <form action="{{ route('tasks') }}" class="search-form">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input name="q" class="mdl-textfield__input" type="text" id="sample6">
+                    <label class="mdl-textfield__label" for="sample-expandable">Search</label>
+                </div>
+            </div>
         </form>
+        </h3>
 
-        <div class="tasks">
-            @foreach($tasks as $task)
-                <a href="/tasks/{{ $task->id }}" class="task">
+        @foreach($tasks as $task)
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title"
+                     style="background: url('{{ $task->img ? $task->img : 'https://media.giphy.com/media/OBBYTaRSqzYBi/giphy.gif' }}') center / cover;"
+                >
+                    <h2 class="mdl-card__title-text" style=" background-color: #212121; padding-right: 15px; border-radius: 20px">
+                        @if ($task->owner->img)
+                            <img style="min-width: 30px" class="mdl-chip__contact" src="{{ $task->owner->img }}">
+                        @else
+                            <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"></span>
+                        @endif
+                        {{ $task->title }}
+                    </h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    {{ $task->description }}
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a href="/tasks/{{ $task->id }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        open
+                    </a>
+                </div>
 
-                    <img src="{{ $task->owner->img }}" class="task__owner-photo">
-
-                    <div class="task__texts">
-                        <h1 class="task__title">{{ $task->title }}</h1>
-                        <p class="task__description">{{ $task->description }}</p>
-                    </div>
-                </a>
-            @endforeach
-        </div>
-    </div>
+            </div>
+            <br>
+        @endforeach
 
 @endsection
+

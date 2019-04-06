@@ -41,7 +41,8 @@ class TasksController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:5000'
+            'description' => 'required|string|max:5000',
+            'img' => 'nullable|url|max:255'
         ]);
 
         $user = Auth::user();
@@ -50,11 +51,12 @@ class TasksController extends Controller
         $task->title = $request->input('title');
         $task->description = $request->input('description');
         $task->creator = $user->id;
+        $task->img = $request->input('img');
         $task->save();
 
         session()->flash('message', 'Task has been created!');
 
-        return redirect('/');
+        return redirect()->route('task', $task->id);
     }
 
     public function delete(\App\Task $task)
