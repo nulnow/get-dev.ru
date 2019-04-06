@@ -2,6 +2,7 @@
 require('./bootstrap');
 
 import App from './components/Example';
+import Chat from './components/Chat';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
@@ -27,4 +28,8 @@ if (document.getElementById('app')) {
     });
 
     ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
+}
+
+if (document.getElementById('chat')) {
+    ReactDOM.render(<Chat />, document.getElementById('chat'));
 }

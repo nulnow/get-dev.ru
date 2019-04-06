@@ -8,6 +8,9 @@
         <h2>Profile:</h2>
         <div class="user">
             <img src="{{ $user->img }}" alt="">
+            <div class="text">
+                <a href="{{ route('chat', $user->id) }}" class="btn">Open chat</a>
+            </div>
             <div class="user__field">
                 <h1>{{ $user->name }}</h1>
             </div>

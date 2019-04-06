@@ -58,6 +58,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/delete-task/{task}', 'TasksController@delete')->name('delete-task');
     Route::get('/users', 'UsersController@search')->name('users');
     Route::get('/users/{user}', 'UsersController@show')->name('user');
+    Route::get('/users/{user}/chat', 'ChatController@chat')->name('chat');
+    Route::get('/users/{notYou}/messages', 'ChatController@messages')->name('messages');
+    Route::get('/users/{notYou}/sendMessage', 'ChatController@sendMessage')->name('sendMessage');
     Route::view('/my-requests', 'my-requests')->name('my-requests');
     Route::view('/my-tasks', 'my-tasks')->name('my-tasks');
     Route::get('/create-dev-request/{task}', 'DevRequestsController@create')->name('create-dev-request');
