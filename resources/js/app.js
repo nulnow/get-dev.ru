@@ -1,8 +1,6 @@
 
 require('./bootstrap');
 
-
-
 import App from './components/Example';
 import React from 'react';
 import ReactDOM from 'react-dom';

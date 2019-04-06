@@ -47,9 +47,11 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-Route::view('/profile', 'profile')->name('profile');
-Route::get('/tasks', 'TasksController@index')->name('tasks');
-Route::get('/tasks/{task}', 'TasksController@show')->name('task');
-Route::get('/create-task', 'TasksController@form')->name('create-task');
-Route::post('/tasks', 'TasksController@create')->name('create-task');
-Route::get('/delete-task/{task}', 'TasksController@delete')->name('delete-task');
+Route::get('/profile', 'UsersController@profile')           ->name('profile');
+Route::post('/profile', 'UsersController@updateProfile')    ->name('update-profile');
+Route::get('/tasks', 'TasksController@index')               ->name('tasks');
+Route::get('/tasks/{task}', 'TasksController@show')         ->name('task');
+Route::get('/create-task', 'TasksController@form')          ->name('create-task');
+Route::post('/tasks', 'TasksController@create')             ->name('create-task');
+Route::get('/delete-task/{task}', 'TasksController@delete') ->name('delete-task');
+Route::get('/search', 'UsersController@search')              ->name('search');

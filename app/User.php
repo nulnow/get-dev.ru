@@ -36,4 +36,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getSkillsAsArray()
+    {
+        $skills = $this->skills_json;
+        try {
+            $skills = \json_decode($skills, true);
+        } finally {
+            if (!$skills) {
+                $skills = [];
+            }
+        }
+
+        return $skills;
+    }
+
+    public function setSkills(array $newSkills)
+    {
+        $this->skills = \json_encode($newSkills);
+        $this->save();
+    }
+
 }
