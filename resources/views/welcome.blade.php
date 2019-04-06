@@ -6,7 +6,7 @@
         <div class="mt-10 container-fluid shadow-1 jumbotron jumbotron--welcome" style="background-image: url('http://www.wallpaperback.net/wp-content/uploads/2018/08/Wallpaper%20Samsung%20Galaxy%20Note%209,%20Android%208.0,%20Android%20Oreo,%20abstract,%20colorful,%20Abstract%209280718172.jpg');">
             <div class="container">
                 <h1>Краудфандинг</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, voluptatem.</p>
+                <p>Nihil verum est licet omnia.</p>
             </div>
         </div>
         <div class="container block shadow-1">
