@@ -23,7 +23,7 @@
             @foreach($task->getAcceptedDevRequests() as $acceptedRequest)
                 <li class="">
                     <a href="{{ route('user', $acceptedRequest->user->id) }}">
-                        <img class="request__user-img" src="{{ $acceptedRequest->user->img }}" alt="">
+                        <img width="50" height="50" class="request__user-img" src="{{ $acceptedRequest->user->img }}" alt="">
                         {{ $acceptedRequest->user->name }}
                     </a>
                 </li>
@@ -35,7 +35,7 @@
             @foreach($task->getUnAcceptedDevRequests() as $unacceptedRequest)
                 <li class="">
                     <a href="{{ route('user', $unacceptedRequest->user->id) }}">
-                        <img class="request__user-img" src="{{ $unacceptedRequest->user->img }}" alt="">
+                        <img width="50" height="50" class="request__user-img" src="{{ $unacceptedRequest->user->img }}" alt="">
                         {{ $unacceptedRequest->user->name }}
                     </a>
                     @if (Auth::user()->checkIfOwnTask($task->id))
