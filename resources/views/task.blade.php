@@ -23,7 +23,7 @@
             @foreach($task->getAcceptedDevRequests() as $acceptedRequest)
                 <li class="">
                     <a href="{{ route('user', $acceptedRequest->user->id) }}">
-                        <img class="request__user-img" src="{{ $unacceptedRequest->user->img }}" alt="">
+                        <img class="request__user-img" src="{{ $acceptedRequest->user->img }}" alt="">
                         {{ $acceptedRequest->user->name }}
                     </a>
                 </li>
