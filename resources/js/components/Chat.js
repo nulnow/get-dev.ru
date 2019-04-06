@@ -10,7 +10,7 @@ export default class Chat extends Component {
     };
 
         setInterval(() => {
-            reloadMessages();
+            this.reloadMessages();
         }, 2000);
 
         this.onInputChange = this.onInputChange.bind(this);
