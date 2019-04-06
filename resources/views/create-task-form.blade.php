@@ -12,11 +12,21 @@
                 <span>Task name</span>
                 <input name="title" type="text">
             </label>
+            @if ($errors->has('title'))
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('title') }}</strong>
+            </span>
+            @endif
 
             <label class="label" for="">
                 <span>Task description</span>
                 <textarea name="description"></textarea>
             </label>
+            @if ($errors->has('description'))
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('description') }}</strong>
+            </span>
+            @endif
 
             <div>
                 <button type="submit" class="btn">Create</button>

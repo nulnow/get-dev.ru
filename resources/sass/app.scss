@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Roboto');
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-$color: #212121;
+$color: #636b6f;
 $pk: #7E57C2;
-$font-family: 'Roboto', Arial, 'sans-serif';
+$font-family: 'Nunito', 'Roboto', Arial, 'sans-serif';
 
 * {
     margin: 0;
@@ -54,7 +53,7 @@ a {
 .container {
     margin: 0 auto;
     width: 100%;
-    max-width: 800px;
+    max-width: 600px;
 }
 
 .container-fluid {
@@ -277,4 +276,64 @@ a {
     border-radius: 10px;
 
     background-color: #FFF9C4;
+}
+
+.search {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    
+    font-size: 20px;
+
+    background-color: #F5F5F5;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.users {
+    padding-top: 20px;
+    list-style: none;
+    padding: 40px;
+
+    background-color: #37474F;
+
+    li {
+        padding: 20px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+
+        background-color: #FAFAFA;
+
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+        &:hover {
+            background-color: #E0E0E0;
+        }
+    }
+
+    @media (max-width: 800px) {
+        font-size: 12px;
+    }
+}
+
+.user {
+    font-size: 20px;
+
+    img {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        border-radius: 50%;
+
+        background-color: #EEEEEE;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+
+    &__field {
+        margin-bottom: 20px;
+    }
 }

@@ -7,12 +7,20 @@
     <div class="mt-10 container block shadow-1 text">
         <div class="task">
             <div class="task__owner">
-                <img class="task__owner-photo" alt="">
+                <img src="{{ $task->owner->img }}" class="task__owner-photo" alt="">
                 <h4 class="task__owner-name">{{ $task->owner->name }}</h4>
             </div>
             <h1>{{ $task->title }}</h1>
             <p>{{ $task->description }}</p>
         </div>
+
+        <h2>Active requests:</h2>
+        <ul>
+            @foreach($task->getUnAcceptedDevRequests() as $unacceptedRequest)
+                <li>{{ $unacceptedRequest->user->name }}</li>
+            @endforeach
+        </ul>
+
         @if ($task->creator === Auth::user()->id)
             <div class="text">
                 <a href="/delete-task/{{ $task->id }}" class="btn btn--danger">Delete</a>
@@ -22,7 +30,7 @@
                 <a href="#" class="btn">Be a partner</a>
             </div>
             <div class="text">
-                <a href="#" class="btn">Be a developer</a>
+                <a href="{{ route('create-dev-request', $task->id) }}" class="btn">Create dev request</a>
             </div>
         @endif
     </div>

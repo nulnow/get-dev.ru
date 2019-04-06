@@ -8,7 +8,7 @@
 
         <label class="label">
             <span>Name</span>
-            <input name="name" type="text" required>
+            <input name="name" value="{{ old('name') }}" type="text" required>
         </label>
         @if ($errors->has('name'))
             <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
 
         <label class="label">
             <span>Email</span>
-            <input name="email" type="email" required>
+            <input name="email" value="{{ old('email') }}" type="email" required>
         </label>
         @if ($errors->has('email'))
             <span class="invalid-feedback" role="alert">

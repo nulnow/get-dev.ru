@@ -57,4 +57,19 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function renderSkills()
+    {
+        return implode(', ', $this->getSkillsAsArray());
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany('\App\Task', 'creator');
+    }
+
+    public function devRequests()
+    {
+        return $this->hasMany('\App\DevRequest', 'from');
+    }
+
 }

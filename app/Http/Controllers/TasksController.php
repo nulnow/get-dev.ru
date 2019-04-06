@@ -7,10 +7,24 @@ use Illuminate\Support\Facades\Auth;
 
 class TasksController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = [1, 2, 3, 4, 5];
-        return view('tasks')->withTasks(\App\Task::all());
+        $searchQuery = $request->input('q');
+
+        if ($searchQuery){
+
+            $tasks = \App\Task::where('title', 'like', '%'.$searchQuery.'%')
+                ->orWhere('description', 'like', '%'.$searchQuery.'%')
+                ->get();
+
+        } else {
+
+            $tasks = \App\Task::all();
+
+        }
+
+        return view('tasks')->withTasks($tasks);
+
     }
 
     public function show(\App\Task $task)

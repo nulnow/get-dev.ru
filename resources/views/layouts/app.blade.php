@@ -6,14 +6,14 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'kek')</title>
+    <title>@yield('title', 'get-dev.ru')</title>
 
     <link href="/bundles/css/app.css" rel="stylesheet">
 </head>
 <body>
 
 <header class="header shadow-1">
-    <a href="/" class="logo">Krad</a>
+    <a href="/" class="logo">get-dev.ru</a>
     <nav class="header__nav">
         @guest
             <a href="/login">Login</a>
@@ -25,7 +25,7 @@
 </header>
 
 @if(session()->has('message'))
-    <div class="container mt-10">
+    <div class="container mt-10" onclick="window.location.reload()">
         <div class="alert">
             {{ session()->get('message') }}
         </div>

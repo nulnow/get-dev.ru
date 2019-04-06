@@ -25,7 +25,9 @@
                 <a href="/profile">Profile</a>
                 <a href="/tasks">Tasks</a>
                 <a href="/chat">Chat</a>
-                <a href="/search">Search</a>
+                <a href="/users">Users</a>
+                <a href="/my-requests">My Requests</a>
+                <a href="/my-tasks">My Tasks</a>
             </nav>
         </div>
     @endguest

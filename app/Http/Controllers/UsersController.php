@@ -19,7 +19,8 @@ class UsersController extends Controller
             'name' => 'required|string|max:100',
             'email' => 'required|email',
             'bio' => 'required|string|max:5000',
-            'skills' => 'required|string|max:1000'
+            'skills' => 'required|string|max:1000',
+            'img' => 'url|string|max:255'
         ]);
 
         $user = Auth::user();
@@ -27,6 +28,7 @@ class UsersController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->bio = $request->input('bio');
+        $user->img = $request->input('img');
 
         $skillsArray = explode(',', $request->input('skills'));
         $skilsAsJson = \json_encode($skillsArray);
@@ -56,7 +58,12 @@ class UsersController extends Controller
 
         }
 
-        return view('search')->withUsers($users);
+        return view('users')->withUsers($users);
 
+    }
+
+    public function show(\App\User $user)
+    {
+        return view('user')->withUser($user);
     }
 }

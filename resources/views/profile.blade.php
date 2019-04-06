@@ -8,6 +8,16 @@
             <h1>Your profile</h1>
 
             <label class="label" for="">
+                <span>Your photo (url)</span>
+                <input name="img" type="text" value="{{ $user->img }}">
+                @if ($errors->has('img'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('img') }}</strong>
+                    </span>
+                @endif
+            </label>
+
+            <label class="label" for="">
                 <span>Your name</span>
                 <input name="name" type="text" value="{{ $user->name }}">
                 @if ($errors->has('name'))

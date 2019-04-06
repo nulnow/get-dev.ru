@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Cache;
+
 Route::view('/docs', 'docs');
 Route::view('/app', 'app');
 
@@ -37,8 +38,8 @@ Route::get('/echo/{text?}', function ($text = null) {
 });
 
 Route::get('/delay', function () {
-   sleep(2);
-   return 'ok';
+    sleep(2);
+    return 'ok';
 });
 
 Auth::routes();
@@ -47,11 +48,17 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-Route::get('/profile', 'UsersController@profile')           ->name('profile');
-Route::post('/profile', 'UsersController@updateProfile')    ->name('update-profile');
-Route::get('/tasks', 'TasksController@index')               ->name('tasks');
-Route::get('/tasks/{task}', 'TasksController@show')         ->name('task');
-Route::get('/create-task', 'TasksController@form')          ->name('create-task');
-Route::post('/tasks', 'TasksController@create')             ->name('create-task');
-Route::get('/delete-task/{task}', 'TasksController@delete') ->name('delete-task');
-Route::get('/search', 'UsersController@search')              ->name('search');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', 'UsersController@profile')->name('profile');
+    Route::post('/profile', 'UsersController@updateProfile')->name('update-profile');
+    Route::get('/tasks', 'TasksController@index')->name('tasks');
+    Route::get('/tasks/{task}', 'TasksController@show')->name('task');
+    Route::get('/create-task', 'TasksController@form')->name('create-task');
+    Route::post('/tasks', 'TasksController@create')->name('create-task');
+    Route::get('/delete-task/{task}', 'TasksController@delete')->name('delete-task');
+    Route::get('/users', 'UsersController@search')->name('users');
+    Route::get('/users/{user}', 'UsersController@show')->name('user');
+    Route::view('/my-requests', 'my-requests')->name('my-requests');
+    Route::view('/my-tasks', 'my-tasks')->name('my-tasks');
+    Route::get('/create-dev-request/{task}', 'DevRequestsController@create')->name('create-dev-request');
+});
