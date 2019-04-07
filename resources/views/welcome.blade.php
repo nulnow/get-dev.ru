@@ -42,7 +42,7 @@
         {{--</div>--}}
     @else
         <div class="container">
-            <h3><mark>get-dev.ru</mark> - система поиска заданий и исполнителей</h3>
+            <h3>get-dev.ru - система поиска заданий и исполнителей</h3>
             <h4>Как пользоваться:</h4>
             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                 <div class="mdl-tabs__tab-bar">

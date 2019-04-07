@@ -14,10 +14,15 @@
 
     <link href="/bundles/css/app.css" rel="stylesheet">
     <style>
+        .login-form,
+        .search-form,
+        .container {
+            max-width: 320px;
+        }
         .login-form {
             display: block;
             width: 100%;
-            max-width: 320px;
+
             margin: 0 auto;
             margin-top: 10vh;
             margin-bottom: 10vh;
@@ -30,7 +35,6 @@
         }
         .container {
             width: 100%;
-            max-width: 320px;
             margin: 0 auto;
             padding: 5px;
         }
