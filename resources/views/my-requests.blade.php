@@ -8,7 +8,7 @@
 
     <div class="mt-10 container block shadow-1 text">
         <h4>My requests:</h4>
-        @foreach(Auth::user()->getUnAcceptedDevRequests() as $unacceptedRequest)
+        @foreach(Auth::user()->devRequests as $unacceptedRequest)
             <?php $task =  $unacceptedRequest->task ?>
             <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title"
@@ -30,6 +30,9 @@
                     <a href="/tasks/{{ $task->id }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                         open
                     </a>
+                    @if($unacceptedRequest->accepted)
+                        <span class="mdl-badge" data-badge="♥">Accepted</span>
+                    @endif
                 </div>
 
             </div>

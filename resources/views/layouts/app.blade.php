@@ -53,7 +53,18 @@
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title">get-dev.ru</span>
+            <span class="mdl-layout-title">
+                <a href="/" style="color: white; text-decoration: none;">
+                    get-dev.ru
+                </a>
+                @auth
+                    @if (Auth::user()->getAcceptedDevRequests())
+                        <small><a style="color: white;" href="/my-requests">
+                            <span class="mdl-badge" data-badge="{{ count(Auth::user()->getAcceptedDevRequests()) }}">accepted tasks</span>
+                        </a></small>
+                    @endif
+                @endauth
+            </span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
@@ -71,7 +82,7 @@
         </div>
     </header>
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">menu</span>
+        <span class="mdl-layout-title"><a href="/">help</a></span>
         <nav class="mdl-navigation">
             @guest
                 <a class="mdl-navigation__link" href="/login">Login</a>
@@ -83,8 +94,16 @@
                 <a class="mdl-navigation__link" href="/profile">Profile</a>
                 <a class="mdl-navigation__link" href="/tasks">Tasks</a>
                 <a class="mdl-navigation__link" href="/users">Users</a>
-                <a class="mdl-navigation__link" href="/my-requests">My Requests</a>
-                <a class="mdl-navigation__link" href="/my-tasks">My Tasks</a>
+                <a class="mdl-navigation__link" href="/my-requests">My Requests
+                        @if (Auth::user()->getAcceptedDevRequests())
+                            <span class="mdl-badge" data-badge="{{ count(Auth::user()->getAcceptedDevRequests()) }}"></span>
+                        @endif
+                    </a>
+                <a class="mdl-navigation__link" href="/my-tasks">My Tasks
+                    @if (Auth::user()->getIncomingDevRequestsCount())
+                        <span class="mdl-badge" data-badge="{{ count(Auth::user()->getIncomingDevRequestsCount()) }}"></span>
+                    @endif
+                </a>
                 <a class="mdl-navigation__link" class="mdl-navigation__link" href="/logout">Logout</a>
             @endguest
         </nav>

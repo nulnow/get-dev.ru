@@ -77,6 +77,21 @@ class User extends Authenticatable
         return $this->devRequests->where('accepted', 0);
     }
 
+    public function getAcceptedDevRequests()
+    {
+        return $this->devRequests->where('accepted', 1);
+    }
+
+    public function getIncomingDevRequestsCount()
+    {
+        $tasks = $this->tasks;
+        $count = 0;
+        foreach ($tasks as $task) {
+            $count += count($task->getUnAcceptedDevRequests());
+        }
+        return $count;
+    }
+
     public function checkIfOwnTask($taskId)
     {
         $task = \App\Task::find($taskId);
