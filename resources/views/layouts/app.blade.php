@@ -87,7 +87,9 @@
         </div>
     </header>
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title"><a href="/">help</a></span>
+        @auth
+            <span class="mdl-layout-title"><a href="/">help</a></span>
+        @endauth
         <nav class="mdl-navigation">
             @guest
                 <a class="mdl-navigation__link" href="/login">Login</a>

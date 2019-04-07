@@ -13,17 +13,18 @@
             <div class="container" style="color: white;">
                 <h1
                     style="
-                        margin-top: 20vh;
+                        margin-top: 17vh;
                         background-color: #212121;
                         font-size: 40px;
                         padding: 10px;
                     "
-                >Краудфандинг</h1>
+                >get-dev.ru - краудфандинг система для IT</h1>
                 <p
                     style="
                         background-color: rgba(0,0,0,0.8);
+                        padding: 5px;
                     "
-                >Нескучные обои, чат, копатыч гарантирует</p>
+                >get-dev.ru - это веб сервис, позволяющий заказчикам найти программистов для разработки своих продуктов, а программистам найти заказы</p>
                 <div>
                     <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="/login">Login</a>
                     <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="/register">Register</a>
