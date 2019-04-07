@@ -133,7 +133,6 @@
             <div class="mdl-mini-footer__left-section">
                 <ul class="mdl-mini-footer__link-list">
                     <li><a href="https://github.com/nulnow/get-dev.ru">github</a></li>
-                    <li><a href="#">Privacy & Terms</a></li>
                 </ul>
             </div>
         </footer>
