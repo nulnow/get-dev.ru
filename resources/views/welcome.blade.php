@@ -4,10 +4,11 @@
 
     @guest
         <div style="
-            /*background-image: url('https://media.giphy.com/media/G06qqg0VZnvLG/giphy.gif');*/
+            background-image: url('https://images.wallpaperscraft.ru/image/kvadrokopter_dron_letatelnyj_apparat_113593_3840x2160.jpg');
+            /*background-image: url('https://media.giphy.com/media/26u4jaRV4WfTZdbHy/giphy.gif');*/
             -webkit-background-size: cover;
             background-size: cover;
-            height: 550px;
+            height: 580px;
         ">
             <div class="container" style="color: white;">
                 <h1
@@ -25,7 +26,7 @@
                 >Нескучные обои, чат, копатыч гарантирует</p>
             </div>
         </div>
-        <div class="container">
+        {{--<div class="container">--}}
             {{--<div class="advantage">--}}
                 {{--<img src="https://images.vexels.com/media/users/3/132826/isolated/preview/5b6683288fdfe1a87f3a7dbbd302fba9-zoom-tool-by-vexels.png" alt="">--}}
                 {{--<p>Поиск разработчиков Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eos harum iure libero minus necessitatibus nobis nostrum, numquam obcaecati ut.</p>--}}
@@ -34,7 +35,7 @@
                 {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at beatae deserunt nam pariatur sunt? Exercitationem nobis odit quo velit?</p>--}}
                 {{--<img src="https://image.flaticon.com/icons/png/512/37/37631.png" alt="">--}}
             {{--</div>--}}
-        </div>
+        {{--</div>--}}
     @else
         <div class="container">
             <h3><mark>get-dev.ru</mark> - система поиска заданий и исполнителей</h3>
@@ -112,7 +113,6 @@
 
                 </div>
             </div>
-
         </div>
     @endguest
 
