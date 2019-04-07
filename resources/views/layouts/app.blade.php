@@ -15,9 +15,9 @@
     <link href="/bundles/css/app.css" rel="stylesheet">
     <style>
         .login-form,
-        .search-form,
         .container {
             max-width: 320px;
+            min-height: 99vh
         }
         .login-form {
             display: block;
@@ -30,6 +30,7 @@
             background-color: #fff;
         }
         .search-form {
+            max-width: 320px;
             background-color: #fff;
             width: 100%;
         }

@@ -9,6 +9,7 @@
             -webkit-background-size: cover;
             background-size: cover;
             height: 580px;
+            min-height: 99vh
         ">
             <div class="container" style="color: white;">
                 <h1
