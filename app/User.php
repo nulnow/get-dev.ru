@@ -88,7 +88,7 @@ class User extends Authenticatable
         $count = 0;
         foreach ($tasks as $task) {
             try {
-                $count += count($task->getUnAcceptedDevRequests() || []);
+                $count += count($task->getUnAcceptedDevRequests());
             } catch (Exception $e) {
 
             }
