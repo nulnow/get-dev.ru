@@ -24,6 +24,10 @@
                         background-color: rgba(0,0,0,0.8);
                     "
                 >Нескучные обои, чат, копатыч гарантирует</p>
+                <div>
+                    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="/login">Login</a>
+                    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="/register">Register</a>
+                </div>
             </div>
         </div>
         {{--<div class="container">--}}

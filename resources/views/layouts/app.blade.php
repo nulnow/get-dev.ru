@@ -71,8 +71,8 @@
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
                 @guest
-                    <a class="mdl-navigation__link" href="/login">Login</a>
-                    <a class="mdl-navigation__link" href="/register">Register</a>
+                    {{--<a class="mdl-navigation__link" href="/login">Login</a>--}}
+                    {{--<a class="mdl-navigation__link" href="/register">Register</a>--}}
                 @else
                     <a class="mdl-navigation__link" href="{{ route('user', Auth::user()->id) }}">
                         {{ Auth::user()->name }}
