@@ -4,7 +4,7 @@
 
     @guest
         <div style="
-            background-image: url('https://media.giphy.com/media/G06qqg0VZnvLG/giphy.gif');
+            /*background-image: url('https://media.giphy.com/media/G06qqg0VZnvLG/giphy.gif');*/
             -webkit-background-size: cover;
             background-size: cover;
             height: 550px;
@@ -17,7 +17,7 @@
                         font-size: 40px;
                         padding: 10px;
                     "
-                >Краудфандинг нового уровня</h1>
+                >Краудфандинг</h1>
                 <p
                     style="
                         background-color: rgba(0,0,0,0.8);

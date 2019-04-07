@@ -20,6 +20,7 @@
             max-width: 320px;
             margin: 0 auto;
             margin-top: 10vh;
+            margin-bottom: 10vh;
 
             background-color: #fff;
         }
@@ -109,7 +110,7 @@
         </nav>
     </div>
     <main class="mdl-layout__content">
-        <div class="page-content">
+        <div class="page-content" style="min-height: 70vh">
             @if(session()->has('message'))
                 {{--<button id="demo-show-snackbar" class="mdl-button mdl-js-button mdl-button--raised" type="button">Show Snackbar</button>--}}
                 <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
@@ -128,6 +129,14 @@
             @endauth
             @yield('content')
         </div>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="https://github.com/nulnow/get-dev.ru">github</a></li>
+                    <li><a href="#">Privacy & Terms</a></li>
+                </ul>
+            </div>
+        </footer>
     </main>
 </div>
 
