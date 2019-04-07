@@ -73,7 +73,7 @@ export default class Chat extends Component {
                         }
                     </div>
                     <div className="chat__input" onSubmit={this.onMessageSend}>
-                        <form>
+                        <form autocomplete="off">
                             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input onChange={this.onInputChange} value={this.state.input} className="mdl-textfield__input" type="text" id="sample3" />
                                 <label className="mdl-textfield__label" htmlFor="sample3">Message</label>

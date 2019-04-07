@@ -3,7 +3,7 @@
 @section('title', 'Create task')
 
 @section('content')
-    <form action="/tasks" method="POST" class="login-form">
+    <form action="/tasks" method="POST" class="login-form" autocomplete="off">
         <h3>Create task</h3>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input value="{{ old('title') }}" name="title" class="mdl-textfield__input" type="text" id="title">

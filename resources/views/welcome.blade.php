@@ -36,7 +36,9 @@
             {{--</div>--}}
         </div>
     @else
-
+        <div class="container">
+            <h1>Как пользоваться</h1>
+        </div>
     @endguest
 
 @endsection

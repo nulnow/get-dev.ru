@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="/register" method="POST" class="login-form">
+    <form action="/register" method="POST" class="login-form" autocomplete="off">
         <h1>Register</h1>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input name="name" class="mdl-textfield__input" type="text" id="name">

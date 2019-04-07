@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="/login" method="POST" class="login-form">
+    <form action="/login" method="POST" class="login-form" autocomplete="off">
         <h1>Login</h1>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input name="email" class="mdl-textfield__input" type="text" id="email">

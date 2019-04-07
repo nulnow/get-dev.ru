@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="/profile" method="POST" class="login-form">
+    <form action="/profile" method="POST" class="login-form" autocomplete="off">
         <h1>Your profile</h1>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input value="{{ $user->img }}" name="img" class="mdl-textfield__input" type="text" id="img">
