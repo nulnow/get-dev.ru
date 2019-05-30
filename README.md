@@ -1,4 +1,4 @@
-## <a href="get-dev.ru">get-dev.ru</a>
+## <a href="https://get-dev.ru">get-dev.ru</a>
 
 <p>Сервис для поиска разработчиков</p>
 
